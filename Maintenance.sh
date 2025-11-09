@@ -1,7 +1,6 @@
 #!/bin/bash
 # 🌟 Interactive Linux System Maintenance Suite 🌟
-# Created by: <Your Name>
-# Simplified to show real actions instead of a fake progress bar
+# Created by: <Dibyajyoti Rout>
 
 LOG_FILE="$HOME/maintenance.log"
 BACKUP_DIR="$HOME/backups"

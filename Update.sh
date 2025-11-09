@@ -1,23 +1,26 @@
-# Script 2: System Update and Cleanup
 update_system() {
+    clear
+    echo -e "${BLUE}=== 🔄 System Update & Cleanup ===${NC}"
     log_message "Starting system update and cleanup..."
-    
-    # Update package list
-    log_message "Updating package list..."
-    sudo apt update 2>&1 | tee -a "$LOG_FILE"
-    
-    # Upgrade packages
-    log_message "Upgrading packages..."
-    sudo apt upgrade -y 2>&1 | tee -a "$LOG_FILE"
-    
-    # Clean up
-    log_message "Cleaning up unnecessary packages..."
-    sudo apt autoremove -y 2>&1 | tee -a "$LOG_FILE"
-    sudo apt autoclean -y 2>&1 | tee -a "$LOG_FILE"
-    
-    # Clear temporary files
-    log_message "Clearing temporary files..."
-    sudo rm -rf /tmp/* 2>/dev/null
-    
-    log_message "System update and cleanup completed"
+
+    echo -e "${YELLOW}Updating package lists...${NC}"
+    sudo apt update -y
+    echo -e "${GREEN}✔ Package lists updated${NC}"
+
+    echo -e "${YELLOW}Upgrading installed packages...${NC}"
+    sudo apt upgrade -y
+    echo -e "${GREEN}✔ System upgraded${NC}"
+
+    echo -e "${YELLOW}Removing unnecessary packages...${NC}"
+    sudo apt autoremove -y
+    sudo apt autoclean -y
+    echo -e "${GREEN}✔ Cleanup completed${NC}"
+
+    echo -e "${YELLOW}Clearing temporary files...${NC}"
+    sudo rm -rf /tmp/*
+    echo -e "${GREEN}✔ Temporary files cleared${NC}"
+
+    log_message "System update and cleanup completed."
+    echo -e "${GREEN}✨ System refreshed and cleaned successfully!${NC}"
+    read -p "Press Enter to return to menu..."
 }
